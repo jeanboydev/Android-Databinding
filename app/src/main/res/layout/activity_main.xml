@@ -4,15 +4,27 @@
 
     <data>
 
+        <import type="com.jeanboy.app.databinding.data.DataModel" />
+
         <variable
-            name="user"
-            type="com.jeanboy.app.databinding.data.DataModel" />
+            name="data"
+            type="com.jeanboy.app.databinding.data.DataObservable" />
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="keyword"
+            type="String" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
         tools:context=".MainActivity">
 
 
@@ -20,13 +32,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="@{user.name}" />
+            android:text="@{data.name}" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@{String.valueOf(user.age)}" />
+            android:text="@{String.valueOf(data.age)}" />
+
+        <EditText
+            android:id="@+id/et_keyword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@{hint}"
+            android:text="@={keyword}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{keyword}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="toUpdate"
+            android:text="更新数据" />
 
     </LinearLayout>
 </layout>
